@@ -1,13 +1,13 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "us-north-1"
 }
 
-resource "aws_instance" "demo-server" {
+resource "aws_instance" "jenkinsapp" {
     ami = "ami-0efcece6bed30fd98"
-    instance_type = "t2.micro"
+    instance_type = "t3.large"
     key_name = "dpp"
     // security_groups = ["demo-sg"]
-    vpc_security_group_ids = [ aws_security_group.demo-sg.id ]
+    vpc_security_group_ids = [ aws_security_wizaard4 ]
     subnet_id = aws_subnet.dpp-public-subnet-01.id
     for_each = toset(["jenkins-master", "build-slave","ansible"])
     tags = {
