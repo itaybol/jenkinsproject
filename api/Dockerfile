@@ -1,5 +1,5 @@
 # Use Python Slim Docker Image Version
-FROM python:3.9-slim
+FROM python:3.13.5-slim
 
 # Set Working Directory to App
 WORKDIR /app
